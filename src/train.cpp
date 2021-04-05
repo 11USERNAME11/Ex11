@@ -17,10 +17,14 @@ void Train::addCage(Cage* newCage, bool turnLightOn) {
     }
     if (last) {
         newCage->prev = last;
+        newCage->next = first;
         newCage->prev->next = newCage;
         last = newCage;
+        first->prev = newCage;
     } else {
         last = newCage;
+        first->prev = newCage;
+        last->next = first;
     }
 }
 
@@ -43,19 +47,14 @@ int Train::findLength() {
     while (!found) {
         first->on();
         i = 0;
-        std::cout << "JOPA\n";
         Cage* cage = first->next;
-        std::cout << "JOPAa\n";
         while (!cage->get()) {
             i++;
-            std::cout << "JOPAb\n";
             cage = cage->next;
         }
-        std::cout << "JOPA1\n";
         cage->off();
         if (!first->get())
             found = true;
-        std::cout << "JOPA2\n";
     }
     return i + 1;
 }
