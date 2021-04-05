@@ -1,6 +1,6 @@
 // Copyright 2021 Bogomazov
-#ifndef INCLUDE_TRAIN_H
-#define INCLUDE_TRAIN_H
+#ifndef INCLUDE_TRAIN_H_
+#define INCLUDE_TRAIN_H_
 class Cage {
  private:
     bool light;
@@ -25,4 +25,4 @@ class Train {
     int findLength();
 };
 
-#endif  //  INCLUDE_TRAIN_H
+#endif  //  INCLUDE_TRAIN_H_
